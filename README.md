@@ -39,3 +39,13 @@ follow ProductControllerTests class.
 
 Swagger UI is a collection of HTML, Javascript, and CSS assets that dynamically generate beautiful documentation from a Swagger-compliant API. http://swagger.io
 I have added  this in project to review all the end points and test it from browser it self.
+
+#How to Start?
+
+ - Update Connection string of local in 'appsettings.Development.json' file.
+ - run migration, use command `update-database`
+ - run api, keeping `SimpleCRUD` as start up project.
+ - you will have a swagger UI in browser where you will be able to see all endpoints of User controller. you can check get call, as we have added some initial values for users.
+ 
+ Happy coding...
+
