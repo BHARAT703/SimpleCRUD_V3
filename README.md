@@ -47,5 +47,10 @@ I have added  this in project to review all the end points and test it from brow
  - run api, keeping `SimpleCRUD` as start up project.
  - you will have a swagger UI in browser where you will be able to see all endpoints of User controller. you can check get call, as we have added some initial values for users.
  
+# Requirements
+
+ - Visual studio 2019 with .Net core 3.1
+ - SQL server and management studio, latest. 
+ 
  Happy coding...
 
