@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/SimpleCRUD/.vs/SimpleCRUD/v16
+/SimpleCRUD/.vs/SimpleCRUD/config
+/SimpleCRUD/SimpleCRUD/obj
+/SimpleCRUD/SimpleCRUD.Entities/obj
+/SimpleCRUD/SimpleCRUD.Infrastructure/obj
+/SimpleCRUD/SimpleCRUD.Infrastructure/bin/Debug/netcoreapp3.1
+/SimpleCRUD/SimpleCRUD.Entities/bin/Debug/netcoreapp3.1
+/SimpleCRUD/SimpleCRUD/bin
