@@ -11,6 +11,7 @@ To Start with on front end side, find folder named `FrontEnd` inside repository.
  Requirements for Back end.
  
 - I have used VS Code for front end part. 
+- Install latest node.js.
 
 # Back End API and Basic Ideas about it.
 
