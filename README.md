@@ -2,14 +2,14 @@
 
 Sample implementation of CRUD functioanltiy keeping angular 8.0 as front end and API built with .Net core 3.1 as Back end. I have used SQL Server for database management.
 
-# Front end and Basic Ideas about it.
+# Front end Part.
 
 I have used material theme for front end, to make it visually more better. I am still working on it so, I will keep updating this part..
 
 To Start with on front end side, find folder named `FrontEnd` inside repository. open that in vs code. install all the packages and serve/run it in browser. but before that make sure your API is running well otherwise you will not be able to see any data.
 
-# Requirements for Back end.
-
+ Requirements for Back end.
+ 
 - I have used VS Code for front end part. 
 
 # Back End API and Basic Ideas about it.
