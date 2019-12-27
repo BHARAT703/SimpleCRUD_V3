@@ -1,8 +1,20 @@
 # SimpleCRUD
 
-Sample implementation of CRUD functioanltiy with Repository Pattern defined in Patterns of Enterprise Application Architecture and/or onion architecture.
+Sample implementation of CRUD functioanltiy keeping angular 8.0 as front end and API built with .Net core 3.1 as Back end. I have used SQL Server for database management.
 
-# Basic ideas are
+# Front end and Basic Ideas about it.
+
+I have used material theme for front end, to make it visually more better. I am still working on it so, I will keep updating this part..
+
+To Start with on front end side, find folder named `FrontEnd` inside repository. open that in vs code. install all the packages and serve/run it in browser. but before that make sure your API is running well otherwise you will not be able to see any data.
+
+# Requirements for Back end.
+
+- I have used VS Code for front end part. 
+
+# Back End API and Basic Ideas about it.
+
+API Contains best practise with Repository Pattern with onion architecture.
 
 A Repository mediates between the data. model abd project mapping layers
 Mapping code is encapsulated behind the Repository.
@@ -47,9 +59,9 @@ I have added  this in project to review all the end points and test it from brow
  - run api, keeping `SimpleCRUD` as start up project.
  - you will have a swagger UI in browser where you will be able to see all endpoints of User controller. you can check get call, as we have added some initial values for users.
  
-# Requirements
+# Requirements for Back end.
 
- - Visual studio 2019 with .Net core 3.1
+ - Visual studio 2019 with .Net core 3.1 installed. one can use VS Code too.
  - SQL server and management studio, latest. 
  
  Happy coding...
