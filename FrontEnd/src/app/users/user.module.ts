@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
-import { allPresentationalComponents } from './presentational';
+import { allImportComponents, allEntryComponents } from '.';
 import { UserRoutes } from './users.routing';
 
 @NgModule({
@@ -16,6 +16,7 @@ import { UserRoutes } from './users.routing';
         FormsModule,
         RouterModule.forChild(UserRoutes),
     ],
-    declarations: [...allPresentationalComponents],
+    declarations: [...allImportComponents],
+    entryComponents: [...allEntryComponents]
 })
 export class UsersModule { }

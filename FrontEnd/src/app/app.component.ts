@@ -9,7 +9,6 @@ export class AppComponent {
   title = 'Simple CRUD';
 
   navItems: any[] = [
-    { name: 'Overview', route: 'books' },
-    { name: 'Add new book', route: 'books/create' },
+    { name: 'Overview', route: 'users' }
   ];
 }

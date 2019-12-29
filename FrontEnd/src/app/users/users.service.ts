@@ -19,6 +19,13 @@ export class UserService {
         return this.httpBase.get<IUser[]>(this.backendUrl).pipe(tap(_ => this.log(`fetched users`)), catchError(this.handleError<IUser[]>('')));
     }
 
+    delete(user: IUser | number): Observable<IUser> {
+        const id = typeof user === 'number' ? user : user.id;
+        const url = `${this.backendUrl}/SoftDelete?id=${id}`;
+    
+        return this.httpBase.delete(url);
+      }
+
     /**
 * Handle Http operation that failed.
 * Let the app continue.
