@@ -1,6 +1,6 @@
 import { UsersComponent } from './user-list/user-list.component';
-import { UserDeleteConfirmation } from './user-list/user-list-delete-confirmation';
+import { UserFormComponent } from './user-form/user-form-component';
 
-export const allImportComponents = [UsersComponent, UserDeleteConfirmation];
+export const allImportComponents = [UsersComponent, UserFormComponent];
 
-export const allEntryComponents = [UserDeleteConfirmation];
+export const allEntryComponents = [UserFormComponent];

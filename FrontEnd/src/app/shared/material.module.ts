@@ -14,7 +14,8 @@ import {
     MatTabsModule,
     MatToolbarModule,
     MatTableModule,
-    MatDialogModule 
+    MatDialogModule,
+    MatGridListModule 
 } from '@angular/material';
 
 const materialModules: any[] = [
@@ -32,7 +33,8 @@ const materialModules: any[] = [
     MatToolbarModule,
     MatPaginatorModule,
     MatTableModule,
-    MatDialogModule 
+    MatDialogModule,
+    MatGridListModule
 ];
 
 @NgModule({ imports: materialModules, exports: materialModules })

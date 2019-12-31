@@ -1,6 +1,7 @@
 <br />
 <h3>Users</h3>
-<table mat-table [dataSource]="users" class="mat-elevation-z8 striped full-width">
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 striped full-width">
 
     <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> Id </th>
@@ -18,9 +19,13 @@
     </ng-container>
 
     <ng-container matColumnDef="star">
-        <th mat-header-cell *matHeaderCellDef></th>
-        <td mat-cell *matCellDef="let element" class="alnright" (click)="openDialog(element)">
-            <i class="material-icons cursor-pointer">delete</i>
+        <th mat-header-cell *matHeaderCellDef class="alnright">
+            <button mat-button color="primary" (click)="openDialog(element, 'add')"><i
+                    class="material-icons">add_circle_outline</i> Add User</button>
+        </th>
+        <td mat-cell *matCellDef="let element" class="alnright">
+            <i class="material-icons cursor-pointer" (click)="openDialog(element, 'update')">system_update_alt</i>
+            <i class="material-icons cursor-pointer" (click)="openDialog(element, 'remove')">delete</i>
         </td>
     </ng-container>
 

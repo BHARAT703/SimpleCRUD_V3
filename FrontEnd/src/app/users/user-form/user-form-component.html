@@ -1,0 +1,38 @@
+<h1 mat-dialog-title>{{ data.action | uppercase }}</h1>
+
+<div *ngIf="data.action == 'remove'">
+    <mat-divider></mat-divider>
+    <div mat-dialog-content>
+        <p>Are you sure you want to delete this user?</p>
+    </div>
+    <div mat-dialog-actions>
+        <button color="warn" mat-button (click)="onNoClick()">No, Thanks</button>
+        <button color="primary" mat-button (click)="onYesClick()" cdkFocusInitial>Yes, Please</button>
+    </div>
+</div>
+
+<div *ngIf="data.action == 'add' || data.action == 'update'">
+    <div class="container" novalidate>
+        <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
+            <mat-form-field class="form-element">
+                <input matInput placeholder="User Name" formControlName="name">
+                <mat-error *ngIf="!name.valid && name.touched">
+                    {{ titleAlert }}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="form-element">
+                <input matInput placeholder="Emailaddress" formControlName="email">
+                <mat-error *ngIf="!formGroup.controls['email'].valid && formGroup.controls['email'].touched">
+                    {{ getErrorEmail() }}
+                </mat-error>
+            </mat-form-field>
+
+            <div class="form-element">
+                <button mat-raised-button color="primary" type="submit" class="button"
+                    [disabled]="getFormState()">Save</button>
+                <button color="warn" mat-button type="button" (click)="onNoClick()">Close</button>
+            </div>
+        </form>
+    </div>
+</div>

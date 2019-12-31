@@ -11,7 +11,7 @@ export class UserService {
     private backendUrl = 'http://localhost:54203/api/users';
     httpOptions = {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-      };
+    };
 
     constructor(private readonly httpBase: HttpBaseService) { }
 
@@ -19,12 +19,22 @@ export class UserService {
         return this.httpBase.get<IUser[]>(this.backendUrl).pipe(tap(_ => this.log(`fetched users`)), catchError(this.handleError<IUser[]>('')));
     }
 
+    add(user: IUser): Observable<IUser> {
+        const url = `${this.backendUrl}/Insert`;
+        return this.httpBase.post(url, user);
+    }
+
+    update(user: IUser) {
+        const url = `${this.backendUrl}/Update`;
+        return this.httpBase.put<IUser>(url, user);
+    }
+
     delete(user: IUser | number): Observable<IUser> {
         const id = typeof user === 'number' ? user : user.id;
         const url = `${this.backendUrl}/SoftDelete?id=${id}`;
-    
+
         return this.httpBase.delete(url);
-      }
+    }
 
     /**
 * Handle Http operation that failed.
