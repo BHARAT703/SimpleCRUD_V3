@@ -9,6 +9,10 @@ import { UserFormComponent } from '../user-form/user-form-component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 
+
+import { range } from 'rxjs';
+import { map, filter, scan } from 'rxjs/operators'
+
 @Component({
     selector: 'app-users',
     templateUrl: './user-list.component.html',
@@ -23,6 +27,15 @@ export class UsersComponent implements OnInit {
     constructor(private userService: UserService, public deleteConfirmation: MatDialog, private _snackBar: MatSnackBar, private changeDetectorRefs: ChangeDetectorRef) { }
 
     ngOnInit() {
+        // const source$ = range(0, 10);
+
+        // source$.pipe(
+        //     filter(x => x % 2 === 0), //filter out non-even numbers and returns 0, 2, 4, 6, 8          
+        //     map(x => x + x),
+        //     scan((acc, x) => acc + x, 0)
+        // )
+        //     .subscribe(x => console.log(x))
+
         this.getUsers();
     }
 

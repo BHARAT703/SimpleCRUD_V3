@@ -11,6 +11,7 @@ namespace SimpleCRUD.Infrastructure.Services
     {
         IEnumerable<T> GetAll();
         IEnumerable<T> GetAllIncluding(params Expression<Func<T, object>>[] includeProperties);
+        PagedList<T> GetAllTheRecordsWithPagging(int skip, int pageSize);
         T GetById(int Id);
         T GetById(string Id);
         T GetSingle(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties);
@@ -43,6 +44,8 @@ namespace SimpleCRUD.Infrastructure.Services
         /// </summary>
         /// <returns></returns>
         public virtual IEnumerable<T> GetAllIncluding(params Expression<Func<T, object>>[] includeProperties) => _repository.GetAllTheRecords(includeProperties);
+        
+        public PagedList<T> GetAllTheRecordsWithPagging(int skip, int pageSize) => _repository.GetAllTheRecordsWithPagging(skip, pageSize, "");
 
         /// <summary>
         /// This method will return enity itself for given Id.

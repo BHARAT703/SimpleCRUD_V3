@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SimpleCRUD.Dto;
 using SimpleCRUD.Entities.Entities;
+using SimpleCRUD.Entities.Helpers;
 using SimpleCRUD.Infrastructure.Services;
 using System.Collections.Generic;
 
@@ -24,6 +25,17 @@ namespace SimpleCRUD.Controllers
         public IActionResult GetAll()
         {
             return new OkObjectResult(_mapper.Map<IEnumerable<User>, IEnumerable<UserDto>>(source: _service.GetAll()));
+        }
+
+        [HttpGet("GetAllWithPagging")]
+        public IActionResult GetAllWithPagging(int pageNum, int pageSize)
+        {
+            var skip = pageSize * (pageNum - 1);
+            var data = _service.GetAllTheRecordsWithPagging(skip, pageSize);
+            return new OkObjectResult(new PagedList<UserDto> {
+                count = data.count,
+                results = _mapper.Map<IEnumerable<User>, IEnumerable<UserDto>>(source: data.results)
+            });
         }
 
         [HttpGet("GetById")]
@@ -110,4 +122,4 @@ namespace SimpleCRUD.Controllers
                 return new ObjectResult(itemToReturn.ErrorMessage) { StatusCode = 500 };
         }
     }
-}   
+}

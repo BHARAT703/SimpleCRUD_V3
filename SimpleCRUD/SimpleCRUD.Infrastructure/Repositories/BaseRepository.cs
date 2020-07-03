@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using SimpleCRUD.Entities.Helpers;
 using SimpleCRUD.Infrastructure.DatabaseContext;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace SimpleCRUD.Infrastructure.Repositories
         IEnumerable<T> GetAllTheRecords();
         IEnumerable<T> GetAllTheRecords(params Expression<Func<T, object>>[] includeProperties);
         IEnumerable<T> GetAllTheRecords(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties);
+        PagedList<T> GetAllTheRecordsWithPagging(int skip, int pageSize, string filter);
         T GetSingle(int id);
         T GetSingle(string id);
         T GetSingle(Expression<Func<T, bool>> predicate);
@@ -59,6 +61,13 @@ namespace SimpleCRUD.Infrastructure.Repositories
             }
 
             return query.AsEnumerable();
+        }
+
+        public virtual PagedList<T> GetAllTheRecordsWithPagging(int skip, int pageSize, string filter)
+        {
+            var count = context.Set<T>().Count();
+            var items = context.Set<T>().Select(m => m).Skip(skip).Take(pageSize).AsEnumerable();
+            return new PagedList<T>() { count = count, results = items };
         }
 
         /// <summary>
@@ -138,4 +147,18 @@ namespace SimpleCRUD.Infrastructure.Repositories
         public virtual int Count() => context.Set<T>().Count();
         public virtual IEnumerable<T> FindBy(Expression<Func<T, bool>> predicate) => context.Set<T>().Where(predicate);
     }
+
+    //public static class ToPagedList
+    //{
+    //    public static PagedList<T> ToPagedListT(this IEnumerable<T> items)
+    //    {
+    //        var pagedList = new PagedList<T>()
+    //        {
+    //            count = items.Count(),
+    //            results = items
+    //        };
+
+    //        return pagedList;
+    //    }
+    //}
 }
